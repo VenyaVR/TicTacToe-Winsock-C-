@@ -1,0 +1,8 @@
+﻿  Client.cpp
+C:\Users\admin\Desktop\C++\Socket-s\Stady\Second test\Client\Client\Client.cpp(113): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода
+  6 of 17 functions (35.3%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Client.vcxproj -> C:\Users\admin\Desktop\C++\Socket-s\Stady\Second test\Client\Release\Client.exe

@@ -1,0 +1,4 @@
+﻿  Server.cpp
+C:\Users\admin\Desktop\C++\Socket-s\Stady\Second test\Server\Server\Server.cpp(21): warning C4305: аргумент: усечение из "int" в "u_short"
+C:\Users\admin\Desktop\C++\Socket-s\Stady\Second test\Server\Server\Server.cpp(21): warning C4309: аргумент: усечение константного значения
+  Server.vcxproj -> C:\Users\admin\Desktop\C++\Socket-s\Stady\Second test\Server\Debug\Server.exe
