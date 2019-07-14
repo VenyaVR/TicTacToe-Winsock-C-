@@ -46,7 +46,13 @@ namespace TicTacToe
 	
 	int Turn = 0;
 	int Move;
-	
+
+	void INIT()
+	{
+		for (int nCounter = 0; nCounter < 9; nCounter++)
+			Map[nCounter] = char(49 + nCounter);
+	}
+
 	void DrawMap()
 	{
 		PrintInConsole("\t      Client\n\n", true);
@@ -54,7 +60,7 @@ namespace TicTacToe
 		cout << "\t  *Tic Tak Toe* \n" << endl;
 		
 		cout << "\t " << "    |" <<  "     |"  << endl;
-		cout << "\t  " << Map[0] << "  |  " << Map[1] << "  | " << Map[2] << endl;
+		cout << "\t  " << Map[0] << "  |  " << Map[1] << "  |  " << Map[2] << endl;
 		cout << "\t_____|_____|_____" << endl;
 		cout << "\t " << "    |" << "     |" << endl;
 		cout << "\t  " << Map[3] << "  |  " << Map[4] << "  |  " << Map[5] << endl;
@@ -111,7 +117,7 @@ namespace TicTacToe
 		drawCounter = 0;
 
 		for(int counter = 0; counter < strlen(Map); counter++)
-			if ((Map[counter] != 'x') || (Map[counter] != '0'))
+			if ((Map[counter] == 'x') || (Map[counter] == '0'))
 				if (++drawCounter == 9)
 				{
 					cout << "\t=====> DRAW <=====" << endl;
@@ -188,6 +194,8 @@ void ClientHandler()
 
 int main()
 {
+	PrintInConsole("\t      Client\n\n", true);
+
 	WSAData wsaData;
 	WORD Version = MAKEWORD(2, 1);
 	if (WSAStartup(Version, &wsaData))
@@ -196,10 +204,20 @@ int main()
 		exit(1);
 	}
 
+	char IP[256];
+	int Port;
+
+	cout << "Enter the IP: ";
+	cin >> IP;
+	cout << "Enter the Port: ";
+	cin >> Port;
+
+	system("cls");
+
 	SOCKADDR_IN addr;
 	int sizeofaddr = sizeof(addr);
-	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	addr.sin_port	     = htons(1111);
+	addr.sin_addr.s_addr = inet_addr(IP);
+	addr.sin_port	     = htons(Port);
 	addr.sin_family		 = AF_INET;
 	
 	Connection = socket(AF_INET, SOCK_STREAM, NULL);
@@ -214,6 +232,7 @@ int main()
 	while (cout << "If you want to start the game press 'Enter'", Command[0] = getch(), Command[0] != Enter) system("cls");
 	
 	system("cls");
+	TicTacToe::INIT();
 	TicTacToe::DrawMap();
 	
 	while (true)
